@@ -12,6 +12,8 @@ import App from "./App";
 
 //Styles
 import "./index.scss";
+import "antd/dist/antd.css";
+
 const store = reduxStore;
 
 const app = (
