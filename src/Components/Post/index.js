@@ -67,6 +67,10 @@ class Post extends React.Component {
     state = {
         value: ""
     };
+    componentDidMount() {
+        console.log(this.props.match.params.postId);
+        this.props.onReceivePost(this.props.match.params.postId);
+    }
 
     handleSubmit = () => {
         if (!this.state.value) {
@@ -120,11 +124,11 @@ class Post extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    posts: state.blog.get("posts").toJS()
+    post: state.blog.get("post")
 });
 
 const mapDispatchToProps = dispatch => ({
-    getListOfPosts: () => dispatch(blogAction.getListOfPostsAsync())
+    onReceivePost: id => dispatch(blogAction.receivePostAsync(id))
 });
 export default connect(
     mapStateToProps,

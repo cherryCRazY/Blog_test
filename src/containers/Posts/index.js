@@ -38,7 +38,7 @@ class Posts extends Component {
     }
 }
 const mapStateToProps = state => ({
-    posts: state.blog.get("posts").toJS()
+    posts: state.blog.get("postsList").toJS()
 });
 
 const mapDispatchToProps = dispatch => ({

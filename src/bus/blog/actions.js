@@ -16,7 +16,7 @@ export default {
         type: types.GET_LIST_OF_POSTS_ASYNC
     }),
     receivePostAsync: id => ({
-        type: types.RECIEVE_POST,
+        type: types.RECIEVE_POST_ASYNC,
         id
     })
 };
