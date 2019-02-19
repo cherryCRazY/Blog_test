@@ -17,7 +17,7 @@ const index = () => {
                         "https://gist.github.com/creativ/a03f890c520cb41e94a3dca6e0a04890"
                     }
                 >
-                    <Icon type="github" />
+                    <Icon type="github" style={{ fontSize: "50px" }} />
                 </a>
             </div>
             <div>
@@ -26,7 +26,7 @@ const index = () => {
                     href="https://github.com/cherryCRazY"
                     style={{ color: "red" }}
                 >
-                    <Icon type="github" />
+                    <Icon type="github" style={{ fontSize: "50px" }} />
                 </a>
             </div>
         </footer>
