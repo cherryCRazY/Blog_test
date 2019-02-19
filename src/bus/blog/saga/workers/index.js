@@ -1,0 +1,1 @@
+export { getListOfPosts } from "./getListOfPosts";
