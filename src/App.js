@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
 
 //Components
-import Post from "./Components/Post";
+import Post from "./Components/PostCard";
 
 //Containers
 import Layout from "./containers/Layout";
