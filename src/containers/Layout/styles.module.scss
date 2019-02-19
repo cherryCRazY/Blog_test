@@ -1,9 +1,7 @@
 .Layout {
-    min-width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
-    box-sizing: border-box;
-    .header {
-        height: 10vh;
-        background-color: #001529;
-    }
+    background-color: aliceblue;
+    display: grid;
+    grid-template-rows: 10vh minmax(80vh, auto) 10vh;
 }
