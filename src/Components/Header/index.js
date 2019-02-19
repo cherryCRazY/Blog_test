@@ -33,6 +33,15 @@ const Header = () => {
                     Help
                 </NavLink>
             </div>
+            <div>
+                <NavLink
+                    to="/create"
+                    className={Styles.HeaderItem}
+                    activeClassName={Styles.active}
+                >
+                    Create
+                </NavLink>
+            </div>
         </header>
     );
 };

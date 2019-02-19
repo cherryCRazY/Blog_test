@@ -22,12 +22,11 @@ const index = () => {
             </div>
             <div>
                 Created by{" "}
-                <a href="https://github.com/cherryCRazY">
-                    <img
-                        alt="cherry"
-                        height={"20"}
-                        src="https://image.flaticon.com/icons/svg/1443/1443591.svg"
-                    />
+                <a
+                    href="https://github.com/cherryCRazY"
+                    style={{ color: "red" }}
+                >
+                    <Icon type="github" />
                 </a>
             </div>
         </footer>

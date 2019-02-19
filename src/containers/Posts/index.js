@@ -20,7 +20,7 @@ class Posts extends Component {
             />
         ));
 
-        return <div>{posts}</div>;
+        return <div className={Styles.Posts}>{posts}</div>;
     }
 }
 

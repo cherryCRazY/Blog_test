@@ -1,14 +1,16 @@
+@import "../../index.scss";
+
 .header {
     height: 10vh;
-    background-color: #001529;
+    background-color: $primaryBlue;
     padding-left: 10vw;
 
     display: grid;
-    grid-template-columns: repeat(3, minmax(30px, 100px));
+    grid-template-columns: repeat(4, minmax(30px, 100px));
     align-items: center;
     justify-content: flex-start;
 
-    font-size: 1.5rem;
+    font-size: 4vmin;
 
     .img {
         height: 7vh;

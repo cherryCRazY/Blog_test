@@ -1,8 +1,10 @@
+@import "../../index.scss";
+
 .footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: $primaryBlue;
     min-height: 5vh;
 }

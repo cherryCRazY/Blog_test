@@ -3,5 +3,9 @@
     min-height: 100vh;
     background-color: aliceblue;
     display: grid;
-    grid-template-rows: 10vh minmax(80vh, auto) 10vh;
+    grid-template-rows: 10vh minmax(75vh, auto) 15vh;
+}
+.Content {
+    justify-self: center;
+    align-items: center;
 }

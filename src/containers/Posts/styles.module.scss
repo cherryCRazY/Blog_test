@@ -1,0 +1,25 @@
+.Posts {
+    position: relative;
+    width: 80vw;
+    left: 50%;
+    transform: translate(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, auto));
+    grid-auto-rows: minmax(100px, 400px);
+    justify-content: space-evenly;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 2vmax;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    .Posts {
+        grid-template-columns: repeat(2, minmax(100px, auto));
+    }
+}
+@media (max-width: 480px) {
+    .Posts {
+        grid-template-columns: minmax(100px, auto);
+    }
+}

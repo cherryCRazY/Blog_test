@@ -29,7 +29,7 @@ class Layout extends Component {
                 ) : (
                     <main className={Styles.Layout}>
                         <Header className={Styles.header} />
-                        <div>
+                        <div className={Styles.Context}>
                             <Posts data={posts} />
                         </div>
                         <Footer />
