@@ -26,6 +26,7 @@ class Posts extends Component {
                 body={p.body}
                 author={p.author}
                 date={p.date}
+                history={this.props.history}
             />
         ));
         return (

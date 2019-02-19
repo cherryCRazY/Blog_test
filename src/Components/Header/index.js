@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import Styles from "./styles.module.scss";
 
 //logo
-import logo from "../../assets/images/logo.png";
+import logo from "../../themes/assets/images/logo.png";
 
 const Header = () => {
     return (

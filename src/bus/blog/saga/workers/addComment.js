@@ -1,9 +1,13 @@
+//Core
+import { put, apply } from "redux-saga/effects";
+import { MAIN_URL } from "../../../../REST/config";
+
+//Actions
 import uiActions from "../../../ui/actions";
 import blogActions from "../../actions";
-import axios from "axios";
-import { MAIN_URL } from "../../../init/config";
 
-import { put, apply } from "redux-saga/effects";
+//Itils
+import axios from "axios";
 
 export function* addComment({ comment }) {
     try {

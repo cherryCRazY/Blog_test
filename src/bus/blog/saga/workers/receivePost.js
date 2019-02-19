@@ -1,9 +1,13 @@
+//Core
+import { MAIN_URL } from "../../../../REST/config";
+import { put, apply } from "redux-saga/effects";
+
+//Actions
 import uiActions from "../../../ui/actions";
 import blogActions from "../../actions";
-import axios from "axios";
-import { MAIN_URL } from "../../../init/config";
 
-import { put, apply } from "redux-saga/effects";
+//Itils
+import axios from "axios";
 
 export function* receivePost({ id }) {
     try {

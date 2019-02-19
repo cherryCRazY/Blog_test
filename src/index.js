@@ -11,7 +11,7 @@ import { store as reduxStore } from "./bus/init/store";
 import App from "./App";
 
 //Styles
-import "./index.scss";
+import "./themes/index.scss";
 
 const store = reduxStore;
 

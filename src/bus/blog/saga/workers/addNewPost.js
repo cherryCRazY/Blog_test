@@ -1,13 +1,16 @@
-import uiActions from "../../../ui/actions";
-import axios from "axios";
-import { MAIN_URL } from "../../../init/config";
-
+//Core
 import { put, apply } from "redux-saga/effects";
+import { MAIN_URL } from "../../../../REST/config";
+
+//Actions
+import uiActions from "../../../ui/actions";
+
+//Itils
+import axios from "axios";
 
 export function* addNewPost({ post }) {
     try {
         yield put(uiActions.startFetching());
-        console.log(post);
 
         yield apply(axios, axios.post, [`${MAIN_URL}/posts`, post]);
         yield put(
