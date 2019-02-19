@@ -1,0 +1,17 @@
+.Post {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.575);
+    &:hover {
+        transform: translateY(-5px);
+        transition: ease-out;
+        transition-duration: 1000ms;
+        opacity: 0.8;
+    }
+    &:active {
+        transform: skewX(1deg);
+        transition: ease-out;
+        transition-duration: 1000ms;
+    }
+    .postData {
+        margin-bottom: 0.5vh;
+    }
+}
