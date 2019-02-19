@@ -22,5 +22,9 @@ export default {
     addCommentAsync: comment => ({
         type: types.ADD_COMMENT_ASYNC,
         comment
+    }),
+    addNewPostAsync: post => ({
+        type: types.ADD_NEW_POST_ASYNC,
+        post
     })
 };

@@ -7,6 +7,9 @@ import Modal from "../UI/Modal";
 import Spinner from "../UI/Spinner";
 import { Form, Input, Button, Spin, Skeleton } from "antd";
 
+//Actions
+import blogActions from "../../bus/blog/actions";
+
 const { TextArea } = Input;
 
 class PostBuilder extends Component {
@@ -14,6 +17,11 @@ class PostBuilder extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                const post = {
+                    title: values.title,
+                    body: values.body.trim()
+                };
+                this.props.onAddNewPost(post);
             }
         });
     };
@@ -68,7 +76,7 @@ class PostBuilder extends Component {
                                     <TextArea
                                         size="large"
                                         style={{ resize: "none" }}
-                                        autosize={{ minRows: 2, maxRows: 6 }}
+                                        autosize={{ minRows: 2 }}
                                         placeholder="Please input description of post"
                                     />
                                 )}
@@ -88,7 +96,9 @@ class PostBuilder extends Component {
 const mapStateToProps = state => ({
     isFetching: state.ui.get("isFetching")
 });
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    onAddNewPost: post => dispatch(blogActions.addNewPostAsync(post))
+});
 
 const WrappedApp = Form.create({ name: "coordinated" })(
     connect(
