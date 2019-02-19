@@ -15,8 +15,8 @@ export default {
     getListOfPostsAsync: () => ({
         type: types.GET_LIST_OF_POSTS_ASYNC
     }),
-    receivePostAsync: post => ({
+    receivePostAsync: id => ({
         type: types.RECIEVE_POST,
-        payload: post
+        id
     })
 };

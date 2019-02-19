@@ -2,7 +2,7 @@
 import React from "react";
 
 //Components
-import { Card, Icon, Avatar } from "antd";
+import { Card, Avatar } from "antd";
 
 //Styles
 import Styles from "./styles.module.scss";
