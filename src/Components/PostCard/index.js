@@ -14,7 +14,6 @@ const { Meta } = Card;
 
 const PostCard = props => {
     const { title, id, body, date, author } = props;
-    console.log(props);
     return (
         <a href={`/post/${id}`}>
             <Card

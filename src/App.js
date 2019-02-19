@@ -13,7 +13,7 @@ class App extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route path="/" exact component={Layout} />
-                    <Route path="/post/:postID" exact component={Layout} />
+                    <Route path="/post" component={Layout} />
                     <Redirect to="/" />
                 </Switch>
             </BrowserRouter>

@@ -26,21 +26,18 @@ const Header = () => {
             </div>
             <div>
                 <NavLink
-                    to="/help"
+                    to="/post/create"
+                    exact
                     className={Styles.HeaderItem}
-                    activeClassName={Styles.active}
-                >
-                    Help
-                </NavLink>
-            </div>
-            <div>
-                <NavLink
-                    to="/create"
-                    className={Styles.HeaderItem}
-                    activeClassName={Styles.active}
+                    activeClassName={Styles.activeItem}
                 >
                     Create
                 </NavLink>
+            </div>
+            <div>
+                <a href="https://www.google.com/" className={Styles.HeaderItem}>
+                    Help
+                </a>
             </div>
         </header>
     );

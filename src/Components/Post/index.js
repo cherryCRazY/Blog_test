@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 //Components
 import { Card } from "antd";
-import { Comment, Avatar, Form, Button, Tooltip, List, Input } from "antd";
+import { Comment, Avatar } from "antd";
+import CommentList from "../CommentList";
+import Editor from "../Editor";
 import Spinner from "../UI/Spinner";
 import Modal from "../UI/Modal";
 
@@ -17,58 +19,11 @@ import moment from "moment";
 //Actions
 import blogAction from "../../bus/blog/actions";
 
-const TextArea = Input.TextArea;
-
-const CommentList = ({ comments }) => {
-    const newData = comments.map(c => ({
-        content: <p>{c.body}</p>,
-        datetime: (
-            <Tooltip
-                title={moment(c.date)
-                    .subtract(1, "days")
-                    .format("YYYY-MM-DD HH:mm:ss")}
-            >
-                <span>
-                    {moment(c.date)
-                        .subtract(1, "days")
-                        .fromNow()}
-                </span>
-            </Tooltip>
-        )
-    }));
-    return (
-        <List
-            dataSource={newData}
-            itemLayout="horizontal"
-            renderItem={props => <Comment {...props} />}
-        />
-    );
-};
-
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
-    <div>
-        <Form.Item>
-            <TextArea rows={4} onChange={onChange} value={value} />
-        </Form.Item>
-        <Form.Item>
-            <Button
-                htmlType="submit"
-                loading={submitting}
-                onClick={onSubmit}
-                type="primary"
-            >
-                Add Comment
-            </Button>
-        </Form.Item>
-    </div>
-);
-
 class Post extends React.Component {
     state = {
         value: ""
     };
     componentDidMount() {
-        console.log(this.props.match.params.postId);
         this.props.onReceivePost(this.props.match.params.postId);
     }
 
@@ -76,6 +31,9 @@ class Post extends React.Component {
         if (!this.state.value) {
             return;
         }
+        const id = this.props.post.id;
+        this.props.onAddComment({ postId: id, body: this.state.value });
+        this.setState({ value: "" });
     };
 
     handleChange = e => {
@@ -86,18 +44,30 @@ class Post extends React.Component {
 
     render() {
         const { submitting, value } = this.state;
-        const comments = [];
-        console.log(this.props.match.params.postId);
-        const { data } = this.props;
+        const { post } = this.props;
+        const comments = post ? post.comments : [{}];
 
         return (
             <>
-                {" "}
                 <Spinner />
                 <Modal />
-                <Card title={data && data.title} className={Styles.Post}>
+                <Card title={post && post.title} className={Styles.Post}>
                     <section className={Styles.body}>
-                        {data && data.body}
+                        {post && post.body}
+                        <div className={Styles.Author}>
+                            <div>
+                                {post && post.author
+                                    ? `Author  "${post.author}"`
+                                    : null}
+                            </div>
+                            <div>
+                                {post && post.date
+                                    ? moment(post.date).format(
+                                          " MMMM DD YYYY  HH:mm "
+                                      )
+                                    : null}
+                            </div>
+                        </div>
                     </section>
 
                     {comments.length > 0 && <CommentList comments={comments} />}
@@ -128,7 +98,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onReceivePost: id => dispatch(blogAction.receivePostAsync(id))
+    onReceivePost: id => dispatch(blogAction.receivePostAsync(id)),
+    onAddComment: comment => dispatch(blogAction.addCommentAsync(comment))
 });
 export default connect(
     mapStateToProps,

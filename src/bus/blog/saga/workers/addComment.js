@@ -5,15 +5,13 @@ import { MAIN_URL } from "../../../init/config";
 
 import { put, apply } from "redux-saga/effects";
 
-export function* receivePost({ id }) {
+export function* addComment({ comment }) {
     try {
         yield put(uiActions.startFetching());
 
-        const post = yield apply(axios, axios.get, [
-            `${MAIN_URL}/posts/${id}?_embed=comments`
-        ]);
+        yield apply(axios, axios.post, [`${MAIN_URL}/comments`, comment]);
 
-        yield put(blogActions.receivePost(post));
+        yield put(blogActions.receivePostAsync(comment.postId));
     } catch (error) {
         yield put(uiActions.showErrorFetching(error.message));
         yield put(uiActions.hideErrorFetching());

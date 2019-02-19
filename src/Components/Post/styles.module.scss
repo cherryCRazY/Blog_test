@@ -4,8 +4,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
-    width: 50vw;
-    min-height: 70vh;
+    width: 40vw;
+    min-height: 100vh;
 
     border: 1px solid black;
     background-color: white;
@@ -13,6 +13,10 @@
     color: black;
 
     text-align: center;
+    .Author {
+        text-align: end;
+        font-size: 0.8rem;
+    }
     .body {
         font-size: 2vmin;
         text-align: justify;

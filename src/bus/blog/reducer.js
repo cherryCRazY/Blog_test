@@ -3,12 +3,10 @@ import types from "./types";
 
 const initialState = Map({
     postsList: List(),
-    post: {}
+    post: null
 });
 
 export default (state = initialState, action) => {
-    console.log(action);
-
     switch (action.type) {
         case types.GET_LIST_OF_POSTS: {
             return state.update("postsList", () => fromJS(action.payload));

@@ -18,5 +18,9 @@ export default {
     receivePostAsync: id => ({
         type: types.RECIEVE_POST_ASYNC,
         id
+    }),
+    addCommentAsync: comment => ({
+        type: types.ADD_COMMENT_ASYNC,
+        comment
     })
 };
